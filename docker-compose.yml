@@ -1,0 +1,21 @@
+version: '3'
+services:
+  webapp:
+    image: slandunkfaker/webfortest:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=mango
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=tkjLBky7yNiErkA5
+  db:
+    image: slandunkfaker/mysqlfortest:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: tkjLBky7yNiErkA5
+      MYSQL_DATABASE: mango
+    ports:
+      - "3306:3306"
